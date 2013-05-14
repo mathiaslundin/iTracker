@@ -1,6 +1,6 @@
-body
+#body
 {
-    font: Arial, sans-serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 .buttonArea,
