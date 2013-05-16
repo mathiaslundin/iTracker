@@ -1,26 +1,22 @@
-#body
+@charset "UTF-8";
+
+html, #body
 {
-    font-family: 'Roboto Slab', serif;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	font-family: 'Roboto Slab', serif;
 }
 
-.buttonArea,
-.footerText,
-#geoLocationContainer,
-#helloWorldInput,
-#helloWorldText
+#body #map-canvas 
 {
-    text-align: center;
+	height: 369px;
+	width: 320px;
 }
 
-#txtName
+.footerText
 {
-    border: 1px solid #AAA;
-    border-radius: 15px;
-    position:static;
-    margin-left: 1em;
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
-    background:white;
-    color: black;
-    padding: 7px;
+	text-align: center;
 }
