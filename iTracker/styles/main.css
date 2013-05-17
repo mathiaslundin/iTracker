@@ -10,10 +10,10 @@ html, #body
 	font-family: 'Roboto Slab', serif;
 }
 
-#body #map-canvas 
+#body .km-content, #body .km-scroll-container, #body #map-canvas 
 {
-	height: 369px;
-	width: 320px;
+	height: 100%;
+	width: 100%;
 }
 
 .footerText
