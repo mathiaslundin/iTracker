@@ -2,23 +2,46 @@
 <html>
 	<head>
 		<title></title>
-		<meta charset="utf-8" />    
+		<meta charset="utf-8" />
 		<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel='stylesheet' type='text/css'>
 		<link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
 		<link href="styles/main.css" rel="stylesheet" />
 	</head>
 	<body id="body">
 		<div data-role="view" id="tabstrip-tracking" data-title="Tracking">
+			<header data-role="header">
+				<div data-role="navbar">
+					<span data-role="view-title"></span>
+					<a data-role="button" data-align="right" data-rel="popover" href="#popover-tracking">New track</a>
+				</div>
+			</header>
+            
+			<div data-role="popover" id="popover-tracking" data-popup='{"height": "30%", "width": "80%"}'>
+				<div data-role="view" data-title="New track">
+					<div data-role="header">
+						<div data-role="navbar">
+							<span data-role="view-title"></span>
+							<a data-role="button" data-align="right" data-click="closeParentPopover">Close</a>
+						</div>
+					</div>
+					<ul data-role="listview">
+						<li>Running<span id="trackingChoiceRun"></span></li>
+						<li>Driving<span id="trackingChoiceCar"></span></li>
+					</ul>
+				</div>
+			</div>
+            
             <div id="myLocation"></div>
-            <div id="map-canvas"></div>
+			<div id="map-canvas"></div>
+            
 		</div>
 
 		<div data-role="view" id="tabstrip-statistics" data-title="Statistics">
-            <h1>My Statistics</h1>
+			<h1>My Statistics</h1>
 		</div>
 
 		<div data-role="view" id="tabstrip-settings" data-title="Settings">
-            <h1>My Settings</h1>       
+			<h1>My Settings</h1>
 		</div>
 
 		<div data-role="layout" data-id="mobile-tabstrip">
@@ -31,7 +54,7 @@
 				<div data-role="tabstrip">
 					<a href="#tabstrip-tracking" data-icon="globe">Tracker</a>
 					<a href="#tabstrip-statistics" data-icon="organize">Statistics</a>
-					<a href="#tabstrip-settings" data-icon="settings">Settings</a>                    
+					<a href="#tabstrip-settings" data-icon="settings">Settings</a>
 				</div>
 			</div>
 		</div>
@@ -39,12 +62,12 @@
 		<script src="cordova.js"></script>
 		<script src="kendo/js/jquery.min.js"></script>
 		<script src="kendo/js/kendo.mobile.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
-        <script src="scripts/application.js"></script>
-        <script src="scripts/database.js"></script>
-        <script src="scripts/tracker.js"></script>
-        <script src="scripts/settings.js"></script>
-        <script src="scripts/statistics.js"></script>
-        <script src="scripts/error.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+		<script src="scripts/application.js"></script>
+		<script src="scripts/database.js"></script>
+		<script src="scripts/tracker.js"></script>
+		<script src="scripts/settings.js"></script>
+		<script src="scripts/statistics.js"></script>
+		<script src="scripts/error.js"></script>
 	</body>
 </html>

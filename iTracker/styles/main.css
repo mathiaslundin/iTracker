@@ -10,6 +10,10 @@ html, #body
 	font-family: 'Roboto Slab', serif;
 }
 
+#body .km-pane {
+    font-family: 'Roboto Slab', serif;
+}
+
 #body .km-content, #body .km-scroll-container, #body #map-canvas 
 {
 	height: 100%;
@@ -20,3 +24,91 @@ html, #body
 {
 	text-align: center;
 }
+
+/* =============================== Tracking =============================== */
+
+#body #popover-tracking {
+    font-size: 80%;
+}
+
+
+@media (-webkit-min-device-pixel-ratio: 1)
+{
+	#body #trackingChoiceRun
+	{
+		background: url('../Images/Icons/runner.png') no-repeat 0 0;
+		-webkit-background-size: 18px 25px;
+	}
+}
+
+@media (min-device-pixel-ratio: 1)
+{
+	#body #trackingChoiceRun
+	{
+		background: url('../Images/Icons/runner.png') no-repeat 0 0;
+		width: 18px;
+		height: 25px; 
+	}    
+}
+
+@media (-webkit-min-device-pixel-ratio: 2)
+{
+	#body #trackingChoiceRun
+	{
+		background: url('../Images/Icons/runner-2x.png') no-repeat 0 0;       
+		-webkit-background-size: 18px 25px;
+	}
+}
+
+@media (min-device-pixel-ratio: 2)
+{
+	#body #trackingChoiceRun
+	{
+		background: url('../Images/Icons/runner-2x.png') no-repeat 0 0;
+		width: 18px;
+		height: 25px; 
+	}    
+}
+
+
+@media (-webkit-min-device-pixel-ratio: 1)
+{
+	#body #trackingChoiceCar
+	{
+		background: url('../Images/Icons/car.png') no-repeat 0 0;
+		-webkit-background-size: 34px 19px;
+	}
+}
+
+@media (min-device-pixel-ratio: 1)
+{
+	#body #trackingChoiceCar
+	{
+		background: url('../Images/Icons/car.png') no-repeat 0 0;
+		width: 34px;
+		height: 19px;
+	}
+    
+}
+
+@media (-webkit-min-device-pixel-ratio: 2)
+{
+	#body #trackingChoiceCar
+	{
+		background: url('../Images/Icons/car-2x.png') no-repeat 0 0;
+		-webkit-background-size: 34px 18px;
+	}
+}
+
+@media (min-device-pixel-ratio: 2)
+{
+	#body #trackingChoiceCar
+	{
+		background: url('../Images/Icons/car-2x.png') no-repeat 0 0;
+		width: 34px;
+		height: 18px; 
+	}
+    
+}
+
+/* ======================================================================== */

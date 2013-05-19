@@ -12,3 +12,8 @@ function onDeviceReady() {
     
 	tracker.getLocation();
 }
+
+function closeParentPopover(e) {
+	var popover = e.sender.element.closest('[data-role=popover]').data('kendoMobilePopOver');
+	popover.close();
+}

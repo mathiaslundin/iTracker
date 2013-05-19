@@ -64,8 +64,14 @@
     <Resource Include="App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Icons\car-2x.png" />
+    <Content Include="Images\Icons\car.png" />
     <Content Include="Images\Icons\map-marker-2x.png" />
     <Content Include="Images\Icons\map-marker.png" />
+    <Content Include="Images\Icons\runner-2x.png" />
+    <Content Include="Images\Icons\runner.png" />
+    <Content Include="Images\Icons\walk-2x.png" />
+    <Content Include="Images\Icons\walk.png" />
     <Content Include="index.html" />
     <Content Include="kendo\js\jquery.min.js" />
     <Content Include="kendo\js\kendo.mobile.min.js" />
