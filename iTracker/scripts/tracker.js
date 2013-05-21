@@ -1,7 +1,18 @@
 // ================== Tracker Constants ================== //
 
-var ZOOM_DEFAULT = 10;
+var ZOOM_DEFAULT = 12;
 var ZOOM_CLOSE = 16;
+var ZOOM_MIN = 8;
+var ZOOM_MAX = 18;
+
+var MARKER_ICON_DEFAULT = 'Images/Icons/map-marker-2x.png';
+
+/* --------- Tracking interval in meters --------- */
+var TRACK_INTERVAL_RUN = 5;
+var TRACK_INTERVAL_DRIVE = 25;
+var TRACK_INTERVAL_MIN = 1;
+var TRACK_INTERVAL_MAX = 100;
+/* -------------------------------------- */
 
 // ======================================================= //
 
@@ -9,6 +20,10 @@ tracker = {
 	map: null,
     mapOptions: null,
     marker: null,
+    
+    trackingOptions: {
+        trackInterval: TRACK_INTERVAL_RUN,
+    },
     
 	getLocation: function() {
 		navigator.geolocation.getCurrentPosition(tracker.onGeolocationSuccess, tracker.onGeolocationError);
@@ -22,20 +37,16 @@ tracker = {
 		};    
     
         //Create the map
-		tracker.map = new google.maps.Map(document.getElementById('map-canvas'), tracker.mapOptions);  
-        
-		var image = {
-			url: 'Images/Icons/map-marker-2x.png',
-		};
+		tracker.map = new google.maps.Map(document.getElementById('map-canvas'), tracker.mapOptions);         
         
         //Place marker on map to visualize current location
 		tracker.marker = new google.maps.Marker({
 			map: tracker.map,
 			position: tracker.map.getCenter(),
-            //icon: image,
             animation: google.maps.Animation.DROP
 		})
         
+        //Zoom in/out on click
 		google.maps.event.addListener(tracker.marker, 'click', function() {
             tracker.map.setZoom(tracker.map.zoom == ZOOM_DEFAULT ? ZOOM_CLOSE : ZOOM_DEFAULT);			
 			tracker.map.setCenter(tracker.marker.getPosition());
@@ -46,8 +57,13 @@ tracker = {
 	onGeolocationError: function(error) {
 		console.log("Error" + error)
 		$("#myLocation").html("<span class='err'>" + error.message + "</span>");
-	}
+	},
+    
+    startTracking: function() {
+        console.log("Started");
+    },
 }
+
 
 
 
