@@ -8,9 +8,10 @@ html, #body
 	width: 100%;
 	overflow: hidden;
 	font-family: 'Roboto Slab', serif;
+    text-shadow: none !important;
 }
 
-#body .km-pane {
+#body .km-pane, #body .km-text {
     font-family: 'Roboto Slab', serif;
 }
 
@@ -18,6 +19,39 @@ html, #body
 {
 	height: 100%;
 	width: 100%;
+}
+
+#body .km-popup.km-pane, #body .km-navbar, #body .km-header .km-button
+{
+	background-color: rgba(0, 176, 255, 0.9);
+}
+
+#body .km-header .km-button:active
+{
+	background-color: rgba(0, 154, 255, 0.9);
+}
+
+#body .km-down .km-popup-arrow::after
+{
+	border-color: rgba(27, 178, 224, 0.9) transparent;   
+}
+
+#body .km-view-title, #body .km-button
+{
+    text-shadow: none;        
+}
+
+#body .km-header .km-button {
+	border: 1px solid #394D68;
+	border-top-color: #2F3740;
+	border-right-color: #394D68;
+	border-bottom-color: #375073;
+	border-left-color: #394D68;
+    box-shadow: none;
+}
+
+#body .km-tab-strip.km-button {
+	border: 0;
 }
 
 #body .footerText
@@ -104,8 +138,7 @@ html, #body
 		background: url('../Images/Icons/car.png') no-repeat 0 0;
 		width: 34px;
 		height: 19px;
-	}
-    
+	}    
 }
 
 @media (-webkit-min-device-pixel-ratio: 2)
@@ -124,8 +157,7 @@ html, #body
 		background: url('../Images/Icons/car-2x.png') no-repeat 0 0;
 		width: 34px;
 		height: 18px; 
-	}
-    
+	}    
 }
 
 /* ======================================================================== */

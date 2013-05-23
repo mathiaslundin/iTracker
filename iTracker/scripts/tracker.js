@@ -12,57 +12,64 @@ var TRACK_INTERVAL_RUN = 5;
 var TRACK_INTERVAL_DRIVE = 25;
 var TRACK_INTERVAL_MIN = 1;
 var TRACK_INTERVAL_MAX = 100;
-/* -------------------------------------- */
+/* ----------------------------------------------- */
 
 // ======================================================= //
 
-tracker = {
-	map: null,
-    mapOptions: null,
-    marker: null,
+var iTracker = iTracker || {};
+
+iTracker.tracker = (function() {
+	var map = null, mapOptions = null, marker = null;
     
-    trackingOptions: {
-        trackInterval: TRACK_INTERVAL_RUN,
-    },
+	var trackingOptions = {
+		trackInterval: TRACK_INTERVAL_RUN,
+	};   
     
-	getLocation: function() {
-		navigator.geolocation.getCurrentPosition(tracker.onGeolocationSuccess, tracker.onGeolocationError);
-	},
-	onGeolocationSuccess: function(position) {
-        //Set map options
-		tracker.mapOptions = {
+	var onGeolocationSuccess = function(position) {
+		//Set map options
+		mapOptions = {
 			center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
 			zoom: ZOOM_DEFAULT,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};    
     
-        //Create the map
-		tracker.map = new google.maps.Map(document.getElementById('map-canvas'), tracker.mapOptions);         
+		//Create the map
+		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);         
         
-        //Place marker on map to visualize current location
-		tracker.marker = new google.maps.Marker({
-			map: tracker.map,
-			position: tracker.map.getCenter(),
-            animation: google.maps.Animation.DROP
+		//Place marker on map to visualize current location
+		marker = new google.maps.Marker({
+			map: map,
+			position: map.getCenter(),
+			animation: google.maps.Animation.DROP
 		})
         
-        //Zoom in/out on click
-		google.maps.event.addListener(tracker.marker, 'click', function() {
-            tracker.map.setZoom(tracker.map.zoom == ZOOM_DEFAULT ? ZOOM_CLOSE : ZOOM_DEFAULT);			
-			tracker.map.setCenter(tracker.marker.getPosition());
+		//Zoom in/out on click
+		google.maps.event.addListener(marker, 'click', function() {
+			map.setZoom(map.zoom == ZOOM_DEFAULT ? ZOOM_CLOSE : ZOOM_DEFAULT);			
+			map.setCenter(marker.getPosition());
 		});
-	},
+	};
 
 	// onGeolocationError Callback receives a PositionError object
-	onGeolocationError: function(error) {
+	onGeolocationError = function(error) {
 		console.log("Error" + error)
 		$("#myLocation").html("<span class='err'>" + error.message + "</span>");
-	},
+	};
     
-    startTracking: function() {
-        console.log("Started");
-    },
-}
+	var getLocation = function() {
+		navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
+	};
+    
+	var startTracking = function() {
+		console.log("Started");
+	};
+    
+	return {
+        trackingOptions: trackingOptions,
+		getLocation: getLocation,
+		startTracking: startTracking
+	};
+})();
 
 
 
