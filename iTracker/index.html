@@ -16,17 +16,17 @@
 				</div>
 			</header>
             
-			<div data-role="popover" id="popover-tracking" data-popup='{"height": "30%", "width": "80%"}'>
+			<div data-role="popover" id="popover-tracking" data-popup='{"height": "30%", "width": "70%"}'>
 				<div data-role="view" data-title="New track">
 					<div data-role="header">
 						<div data-role="navbar">
 							<span data-role="view-title"></span>
-							<a data-role="button" data-align="right" data-click="closeParentPopover">Close</a>
+							<!--<a data-role="button" data-align="right" data-click="closeParentPopover">Close</a>-->
 						</div>
 					</div>
 					<ul data-role="listview">
-						<li><a data-role="button" data-click="iTracker.tracker.startTracking" class="trackingChoiceRunIcon"><span class="trackingChoiceRun">Running</span></a></li>
-						<li><a data-role="button" data-click="iTracker.tracker.startTracking" class="trackingChoiceCarIcon"><span class="trackingChoiceCar">Driving</span></a></li>
+						<li><a data-role="button" class="trackingChoice" data-value="run"><span class="trackingChoiceRun">Running</span></a></li>
+						<li><a data-role="button" class="trackingChoice" data-value="drive"><span class="trackingChoiceCar">Driving</span></a></li>
 					</ul>
 				</div>
 			</div>

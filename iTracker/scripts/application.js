@@ -10,10 +10,15 @@ function onDeviceReady() {
 	databaseManager.initializeDatabase();
 	//databaseManager.insertIntoDatabase("Tracking", ["test track", 58.756127, 17.014625, 25, 20, "2013-05-14T22:24:00.000Z"]);
     
-	iTracker.tracker.getLocation();
+	iTracker.tracker.getLocation();   
+    
+	$('.trackingChoice').bind('click', function(e) {     
+			iTracker.tracker.startTracking();
+	});
+        
 }
 
-function closeParentPopover(e) {
+/*function closeParentPopover(e) {
 	var popover = e.sender.element.closest('[data-role=popover]').data('kendoMobilePopOver');
 	popover.close();
-}
+}*/

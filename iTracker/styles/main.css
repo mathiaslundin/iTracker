@@ -4,11 +4,8 @@ html, #body
 {
 	margin: 0;
 	padding: 0;
-	height: 100%;
-	width: 100%;
 	overflow: hidden;
 	font-family: 'Roboto Slab', serif;
-    text-shadow: none !important;
 }
 
 #body .km-pane, #body .km-text {
@@ -26,19 +23,31 @@ html, #body
 	background-color: rgba(0, 176, 255, 0.9);
 }
 
-#body .km-header .km-button:active
+#body .km-popup .km-view-title
 {
-	background-color: rgba(0, 154, 255, 0.9);
+	background-color: transparent;
+	box-shadow: none;
+	-webkit-box-shadow: none; 
 }
 
-#body .km-down .km-popup-arrow::after
+#body .km-popup .km-navbar
 {
-	border-color: rgba(27, 178, 224, 0.9) transparent;   
+	background-color: rgba(0, 176, 255, 0);
+}
+
+#body .km-header .km-button:active
+{
+	background-color: rgba(0, 130, 255, 0.9);
 }
 
 #body .km-view-title, #body .km-button
 {
     text-shadow: none;        
+}
+
+#body .km-down .km-popup-arrow::after
+{
+	border-color: rgba(27, 178, 224, 0.7) transparent;   
 }
 
 #body .km-header .km-button {
@@ -50,14 +59,10 @@ html, #body
     box-shadow: none;
 }
 
-#body .km-tab-strip.km-button {
-	border: 0;
+#body .km-popup .km-scroll-container {
+    height: auto;
 }
 
-#body .footerText
-{
-	text-align: center;
-}
 
 /* =============================== Tracking =============================== */
 
@@ -65,18 +70,17 @@ html, #body
     font-size: 80%;
 }
 
-#body .trackingChoiceRun {
+/*#body .trackingChoiceRun {
     margin-left: 26px;
 }
 
 #body .trackingChoiceCar
 {   
 	margin-left: 35px;
-}
+}*/
 
 #body .trackingChoiceRunIcon, #body .trackingChoiceCarIcon {
     margin: 0;
-    display: inline;
 }
 
 #body .trackingChoiceRunIcon {
