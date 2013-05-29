@@ -12,10 +12,24 @@ html, #body
     font-family: 'Roboto Slab', serif;
 }
 
-#body .km-content, #body .km-scroll-container, #body #map-canvas 
+/* --- iPhone 4 --- */
+@media (max-height: 547px)
 {
-	height: 100%;
-	width: 100%;
+	#body .km-content, #body .km-scroll-container
+	{
+		height: 89%;
+		width: 100%;
+	}
+}
+
+/* --- iPhone 5 --- */
+@media (min-height: 548px)
+{
+	#body .km-content, #body .km-scroll-container
+	{
+		height: 91%;
+		width: 100%;
+	}
 }
 
 #body .km-popup.km-pane, #body .km-navbar, #body .km-header .km-button
@@ -35,11 +49,6 @@ html, #body
 	background-color: rgba(0, 176, 255, 0);
 }
 
-#body .km-header .km-button:active
-{
-	background-color: rgba(0, 130, 255, 0.9);
-}
-
 #body .km-view-title, #body .km-button
 {
     text-shadow: none;        
@@ -50,6 +59,13 @@ html, #body
 	border-color: rgba(27, 178, 224, 0.7) transparent;   
 }
 
+#body .km-popup .km-scroll-container {
+    height: auto;
+}
+
+
+/* =============================== Header =============================== */
+
 #body .km-header .km-button {
 	border: 1px solid #394D68;
 	border-top-color: #2F3740;
@@ -59,12 +75,85 @@ html, #body
     box-shadow: none;
 }
 
-#body .km-popup .km-scroll-container {
-    height: auto;
+#body .km-header .km-button:active
+{
+	background-color: rgba(0, 130, 255, 0.9);
 }
+
+@media (-webkit-min-device-pixel-ratio: 1)
+{
+	#body .km-header .locationArrow
+	{
+		background: url('../Images/Icons/location-arrow.png') no-repeat 0 0;
+		-webkit-background-size: 24px 24px;
+        border:none;
+	}   
+	#body .km-header .locationArrow:active
+	{
+		background: url('../Images/Icons/location-arrow-gray.png') no-repeat 0 0;
+		-webkit-background-size: 24px 24px;
+        border:none;
+	}
+}
+
+@media (min-device-pixel-ratio: 1)
+{
+	#body .km-header .locationArrow
+	{
+		background: url('../Images/Icons/location-arrow.png') no-repeat 0 0;
+		width: 24px;
+		height: 24px;
+        border:none;
+	}
+	#body .km-header .locationArrow:active
+	{
+		background: url('../Images/Icons/location-arrow-gray.png') no-repeat 0 0;
+		width: 24px;
+		height: 24px;
+        border:none;
+	}
+}
+
+@media (-webkit-min-device-pixel-ratio: 2)
+{
+	#body .locationArrow
+	{
+		background: url('../Images/Icons/location-arrow-2x.png') no-repeat 0 0;
+		-webkit-background-size: 24px 24px;
+	}    
+	#body .locationArrow:active
+	{
+		background: url('../Images/Icons/location-arrow-2x-gray.png') no-repeat 0 0;
+		-webkit-background-size: 24px 24px;
+	}
+}
+
+@media (min-device-pixel-ratio: 2)
+{
+	#body .locationArrow
+	{
+		background: url('../Images/Icons/location-arrow-2x.png') no-repeat 0 0;
+		width: 24px;
+		height: 24px;
+	}
+	#body .locationArrow:active
+	{
+		background: url('../Images/Icons/location-arrow-2x-gray.png') no-repeat 0 0;
+		width: 24px;
+		height: 24px;
+	}
+}
+
+/* ======================================================================== */
 
 
 /* =============================== Tracking =============================== */
+
+#body #map-canvas
+{
+	height: 100%;
+	width: 100%;
+}
 
 #body #popover-tracking {
     font-size: 80%;

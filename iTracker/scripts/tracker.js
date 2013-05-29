@@ -23,9 +23,19 @@ iTracker.tracker = (function() {
     
 	var trackingOptions = {
 		trackInterval: TRACK_INTERVAL_RUN,
-	};   
+	};
     
-	var onGeolocationSuccess = function(position) {
+/*    //Zoom in/out on click
+		google.maps.event.addListener(marker, 'click', function() {
+			map.setZoom(map.zoom == ZOOM_DEFAULT ? ZOOM_CLOSE : ZOOM_DEFAULT);			
+			map.setCenter(marker.getPosition());
+		});
+        google.maps.event.addListener(map, 'center_changed', function() {
+            console.log("center_changed");
+        });    
+    */
+    
+    var setMap = function(position) {
 		//Set map options
 		mapOptions = {
 			center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
@@ -41,13 +51,15 @@ iTracker.tracker = (function() {
 			map: map,
 			position: map.getCenter(),
 			animation: google.maps.Animation.DROP
-		})
-        
-		//Zoom in/out on click
-		google.maps.event.addListener(marker, 'click', function() {
-			map.setZoom(map.zoom == ZOOM_DEFAULT ? ZOOM_CLOSE : ZOOM_DEFAULT);			
-			map.setCenter(marker.getPosition());
-		});
+		});        
+	}
+    
+	var init = function() {
+        getLocation();        
+	}
+    
+	var onGeolocationSuccess = function(position) {
+		setMap(position);
 	};
 
 	// onGeolocationError Callback receives a PositionError object
@@ -56,18 +68,32 @@ iTracker.tracker = (function() {
 		$("#myLocation").html("<span class='err'>" + error.message + "</span>");
 	};
     
-	var getLocation = function() {
-		navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
+	var getLocation = function(successCallback, errorCallback) {
+        //Check if default callback functions are needed
+        if(successCallback == undefined) successCallback = onGeolocationSuccess;
+        if(errorCallback == undefined) errorCallback = onGeolocationError;
+        
+		navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 	};
     
+	var centerMapOnLocation = function() {
+		getLocation(function(position) {
+			if (map != null) {
+				map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));             
+			}
+		}, onGeolocationError);
+	}
+	
 	var startTracking = function() {
 		console.log("Started");
 	};
     
 	return {
         trackingOptions: trackingOptions,
+        init: init,
 		getLocation: getLocation,
-		startTracking: startTracking
+        centerMapOnLocation: centerMapOnLocation,
+		startTracking: startTracking,
 	};
 })();
 

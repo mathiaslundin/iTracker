@@ -66,6 +66,10 @@
   <ItemGroup>
     <Content Include="Images\Icons\car-2x.png" />
     <Content Include="Images\Icons\car.png" />
+    <Content Include="Images\Icons\location-arrow-2x-gray.png" />
+    <Content Include="Images\Icons\location-arrow-2x.png" />
+    <Content Include="Images\Icons\location-arrow-gray.png" />
+    <Content Include="Images\Icons\location-arrow.png" />
     <Content Include="Images\Icons\map-marker-2x.png" />
     <Content Include="Images\Icons\map-marker.png" />
     <Content Include="Images\Icons\runner-2x.png" />
